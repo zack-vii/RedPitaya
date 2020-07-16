@@ -90,73 +90,73 @@ Parameter options:
 
 .. tabularcolumns:: |p{28mm}|p{28mm}|p{28mm}|
 
-+--------------------------------------+----------------------------+--------------------------------------------------------------------------+
-| SCPI                                 | API                        | description                                                              |
-+======================================+============================+==========================================================================+
-| | ``OUTPUT<n>:STATE <state>``        | | ``rp_GenOutEnable``      | Disable or enable fast analog outputs.                                   |
-| | Examples:                          | | ``rp_GenOutDisable``     |                                                                          |
-| | ``OUTPUT1:STATE ON``               |                            |                                                                          |
-+--------------------------------------+----------------------------+--------------------------------------------------------------------------+
-| | ``SOUR<n>:FREQ:FIX <frequency>``   | ``rp_GenFreq``             | Set frequency of fast analog outputs.                                    |
-| | Examples:                          |                            |                                                                          |
-| | ``SOUR2:FREQ:FIX 100000``          |                            |                                                                          |
-+--------------------------------------+----------------------------+--------------------------------------------------------------------------+
-| | ``SOUR<n>:FUNC <func>``            | ``rp_GenWaveform``         | Set waveform of fast analog outputs.                                     |
-| | Examples:                          |                            |                                                                          |
-| | ``SOUR2:FUNC TRIANGLE``            |                            |                                                                          |
-+--------------------------------------+----------------------------+--------------------------------------------------------------------------+
-| | ``SOUR<n>:VOLT <amplitude>``       | ``rp_GenAmp``              | | Set amplitude voltage of fast analog outputs.                          |
-| | Examples:                          |                            | | Amplitude + offset value must be less than maximum output range ± 1V   |
-| | ``SOUR2:VOLT 0.5``                 |                            |                                                                          |
-+--------------------------------------+----------------------------+--------------------------------------------------------------------------+
-| | ``SOUR<n>:VOLT:OFFS <offset>``     | ``rp_GenOffset``           | | Set offset voltage of fast analog outputs.                             |
-| | Examples:                          |                            | | Amplitude + offset value must be less than maximum output range ± 1V   |
-| | ``SOUR1:VOLT:OFFS 0.2``            |                            |                                                                          |
-+--------------------------------------+----------------------------+--------------------------------------------------------------------------+
-| | ``SOUR<n>:PHAS <phase>``           | ``rp_GenPhase``            | Set phase of fast analog outputs.                                        |
-| | Examples:                          |                            |                                                                          |
-| | ``SOUR2:PHAS 30``                  |                            |                                                                          |
-+--------------------------------------+----------------------------+--------------------------------------------------------------------------+
-| | ``SOUR<n>:DCYC <par>``             | ``rp_GenDutyCycle``        | Set duty cycle of PWM waveform.                                          |
-| | Examples:                          |                            |                                                                          |
-| | ``SOUR1:DCYC 0.2``                 |                            |                                                                          |
-+--------------------------------------+----------------------------+--------------------------------------------------------------------------+
-| | ``SOUR<n>:TRAC:DATA:DATA <array>`` | ``rp_GenArbWaveform``      | Import data for arbitrary waveform generation.                           |
-| | Examples:                          |                            |                                                                          |
-| | ``SOUR1:TRAC:DATA:DATA``           |                            |                                                                          |
-| | ``1,0.5,0.2``                      |                            |                                                                          |
-+--------------------------------------+----------------------------+--------------------------------------------------------------------------+
-| | ``SOUR<n>:BURS:STAT <burst>``      | ``rp_GenMode``             | Enable or disable burst (pulse) mode.                                    |
-| | Examples:                          |                            | Red Pitaya will generate **R** number of **N** periods of signal         |
-| | ``SOUR1:BURS:STAT ON``             |                            | and then stop. Time between bursts is **P**.                             |
-| | ``SOUR1:BURS:STAT OFF``            |                            |                                                                          |
-+--------------------------------------+----------------------------+--------------------------------------------------------------------------+
-| | ``SOUR<n>:BURS:NCYC <count>``      | ``rp_GenBurstCount``       | Set N number of periods in one burst.                                    |
-| | Examples:                          |                            |                                                                          |
-| | ``SOUR1:BURS:NCYC 3``              |                            |                                                                          |
-+--------------------------------------+----------------------------+--------------------------------------------------------------------------+
-| | ``SOUR1:BURS:NOR <count>``         | ``rp_GenBurstRepetitions`` | Set R number of repeated bursts.                                         |
-| | Examples:                          |                            |                                                                          |
-| | ``SOUR1:BURS:NOR 5``               |                            |                                                                          |
-+--------------------------------------+----------------------------+---------------------------+----------------------------------------------+
-| | ``SOUR1:BURS:INT:PER <time>``      | ``rp_GenBurstPeriod``      | Set P total time of one burst in in micro seconds.                       |
-| | Examples:                          |                            | This includes the signal and delay.                                      |
-| | ``SOUR1:BURS:INT:PER 1000000``     |                            |                                                                          |
-+--------------------------------------+----------------------------+--------------------------------------------------------------------------+
-| | ``SOUR<n>:TRIG:SOUR <trigger>``    | ``rp_GenTriggerSource``    | Set trigger source for selected signal.                                  |
-| | Examples:                          |                            |                                                                          |
-| | ``SOUR1:TRIG:SOUR EXT``            |                            |                                                                          |
-+--------------------------------------+----------------------------+--------------------------------------------------------------------------+
-| | ``SOUR<n>:TRIG:IMM``               | ``rp_GenTrigger``          | Triggers selected source immediately only for Burst mode. <n> can        |
-| |                                    |                            | accepted values {0...3}. Where 0 is 1 channel, 1 is 2 channel, 2 and 3   |
-| |                                    |                            | for run both channel simultaneously.                                     |
-| | Examples:                          |                            |                                                                          |
-| | ``SOUR1:TRIG:IMM``                 |                            |                                                                          |
-+--------------------------------------+----------------------------+--------------------------------------------------------------------------+
-| | ``GEN:RST``                        |                            | Reset generator to default settings.                                     |
-+--------------------------------------+----------------------------+--------------------------------------------------------------------------+
-| | ``GEN:SYNC``                       |                            | Running two generators at the simultaneously.                            |
-+--------------------------------------+----------------------------+--------------------------------------------------------------------------+
++--------------------------------------+----------------------------+----------------------------------------------------------------------------+
+| SCPI                                 | API                        | description                                                                |
++======================================+============================+============================================================================+
+| | ``OUTPUT<n>:STATE <state>``        | | ``rp_GenOutEnable``      | Disable or enable fast analog outputs.                                     |
+| | Examples:                          | | ``rp_GenOutDisable``     |                                                                            |
+| | ``OUTPUT1:STATE ON``               |                            |                                                                            |
++--------------------------------------+----------------------------+----------------------------------------------------------------------------+
+| | ``SOUR<n>:FREQ:FIX <frequency>``   | ``rp_GenFreq``             | Set frequency of fast analog outputs.                                      |
+| | Examples:                          |                            |                                                                            |
+| | ``SOUR2:FREQ:FIX 100000``          |                            |                                                                            |
++--------------------------------------+----------------------------+----------------------------------------------------------------------------+
+| | ``SOUR<n>:FUNC <func>``            | ``rp_GenWaveform``         | Set waveform of fast analog outputs.                                       |
+| | Examples:                          |                            |                                                                            |
+| | ``SOUR2:FUNC TRIANGLE``            |                            |                                                                            |
++--------------------------------------+----------------------------+----------------------------------------------------------------------------+
+| | ``SOUR<n>:VOLT <amplitude>``       | ``rp_GenAmp``              | | Set amplitude voltage of fast analog outputs.                            |
+| | Examples:                          |                            | | Amplitude + offset value must be less than maximum output range ± 1V     |
+| | ``SOUR2:VOLT 0.5``                 |                            |                                                                            |
++--------------------------------------+----------------------------+----------------------------------------------------------------------------+
+| | ``SOUR<n>:VOLT:OFFS <offset>``     | ``rp_GenOffset``           | | Set offset voltage of fast analog outputs.                               |
+| | Examples:                          |                            | | Amplitude + offset value must be less than maximum output range ± 1V     |
+| | ``SOUR1:VOLT:OFFS 0.2``            |                            |                                                                            |
++--------------------------------------+----------------------------+----------------------------------------------------------------------------+
+| | ``SOUR<n>:PHAS <phase>``           | ``rp_GenPhase``            | Set phase of fast analog outputs.                                          |
+| | Examples:                          |                            |                                                                            |
+| | ``SOUR2:PHAS 30``                  |                            |                                                                            |
++--------------------------------------+----------------------------+----------------------------------------------------------------------------+
+| | ``SOUR<n>:DCYC <par>``             | ``rp_GenDutyCycle``        | Set duty cycle of PWM waveform.                                            |
+| | Examples:                          |                            |                                                                            |
+| | ``SOUR1:DCYC 0.2``                 |                            |                                                                            |
++--------------------------------------+----------------------------+----------------------------------------------------------------------------+
+| | ``SOUR<n>:TRAC:DATA:DATA <array>`` | ``rp_GenArbWaveform``      | Import data for arbitrary waveform generation.                             |
+| | Examples:                          |                            |                                                                            |
+| | ``SOUR1:TRAC:DATA:DATA``           |                            |                                                                            |
+| | ``1,0.5,0.2``                      |                            |                                                                            |
++--------------------------------------+----------------------------+----------------------------------------------------------------------------+
+| | ``SOUR<n>:BURS:STAT <burst>``      | ``rp_GenMode``             | Enable or disable burst (pulse) mode.                                      |
+| | Examples:                          |                            | Red Pitaya will generate **R** number of **N** periods of signal           |
+| | ``SOUR1:BURS:STAT ON``             |                            | and then stop. Time between bursts is **P**.                               |
+| | ``SOUR1:BURS:STAT OFF``            |                            |                                                                            |
++--------------------------------------+----------------------------+----------------------------------------------------------------------------+
+| | ``SOUR<n>:BURS:NCYC <count>``      | ``rp_GenBurstCount``       | Set N number of periods in one burst.                                      |
+| | Examples:                          |                            |                                                                            |
+| | ``SOUR1:BURS:NCYC 3``              |                            |                                                                            |
++--------------------------------------+----------------------------+----------------------------------------------------------------------------+
+| | ``SOUR1:BURS:NOR <count>``         | ``rp_GenBurstRepetitions`` | Set R number of repeated bursts.                                           |
+| | Examples:                          |                            |                                                                            |
+| | ``SOUR1:BURS:NOR 5``               |                            |                                                                            |
++--------------------------------------+----------------------------+---------------------------+------------------------------------------------+
+| | ``SOUR1:BURS:INT:PER <time>``      | ``rp_GenBurstPeriod``      | Set P total time of one burst in in micro seconds.                         |
+| | Examples:                          |                            | This includes the signal and delay.                                        |
+| | ``SOUR1:BURS:INT:PER 1000000``     |                            |                                                                            |
++--------------------------------------+----------------------------+----------------------------------------------------------------------------+
+| | ``SOUR<n>:TRIG:SOUR <trigger>``    | ``rp_GenTriggerSource``    | Set trigger source for selected signal.                                    |
+| | Examples:                          |                            |                                                                            |
+| | ``SOUR1:TRIG:SOUR EXT``            |                            |                                                                            |
++--------------------------------------+----------------------------+----------------------------------------------------------------------------+
+| | ``SOUR<n>:TRIG:IMM``               | ``rp_GenTrigger``          | | Triggers selected source immediately only for Burst mode. <n> can        |
+| |                                    |                            | | accepted values {0...3}. Where 0 is 1 channel, 1 is 2 channel, 2 and 3   |
+| |                                    |                            | | for run both channel simultaneously.                                     |
+| | Examples:                          |                            |                                                                            |
+| | ``SOUR1:TRIG:IMM``                 |                            |                                                                            |
++--------------------------------------+----------------------------+----------------------------------------------------------------------------+
+| | ``GEN:RST``                        |                            | Reset generator to default settings.                                       |
++--------------------------------------+----------------------------+----------------------------------------------------------------------------+
+| | ``GEN:SYNC``                       |                            | Running two generators at the simultaneously.                              |
++--------------------------------------+----------------------------+----------------------------------------------------------------------------+
 
 =======
 Acquire
@@ -225,62 +225,62 @@ Parameter options:
 
 .. tabularcolumns:: |p{28mm}|p{28mm}|p{28mm}|
 
-+-------------------------------------+-------------------------------+-----------------------------------------------------------------------------+
-| SCPI                                | API                           | DESCRIPTION                                                                 |
-+=====================================+===============================+=============================================================================+
-| | ``ACQ:TRIG <source>``             | ``rp_AcqSetTriggerSrc``       | Disable triggering, trigger immediately or set trigger source & edge.       |
-| | Example:                          |                               |                                                                             |
-| | ``ACQ:TRIG CH1_PE``               |                               |                                                                             |
-+-------------------------------------+-------------------------------+-----------------------------------------------------------------------------+
-| | ``ACQ:TRIG:STAT?``                | ``rp_AcqGetTriggerState``     | Get trigger status. If DISABLED -> TD else WAIT.                            |
-| | Example:                          |                               |                                                                             |
-| | ``ACQ:TRIG:STAT?`` > ``WAIT``     |                               |                                                                             |
-+-------------------------------------+-------------------------------+-----------------------------------------------------------------------------+
-| | ``ACQ:TRIG:DLY <time>``           | ``rp_AcqSetTriggerDelay``     | Set trigger delay in samples.                                               |
-| | Example:                          |                               |                                                                             |
-| | ``ACQ:TRIG:DLY 2314``             |                               |                                                                             |
-+-------------------------------------+-------------------------------+-----------------------------------------------------------------------------+
-| | ``ACQ:TRIG:DLY?`` > ``<time>``    | ``rp_AcqGetTriggerDelay``     | Get trigger delay in samples.                                               |
-| | Example:                          |                               |                                                                             |
-| | ``ACQ:TRIG:DLY?`` > ``2314``      |                               |                                                                             |
-+-------------------------------------+-------------------------------+-----------------------------------------------------------------------------+
-| | ``ACQ:TRIG:DLY:NS <time>``        | ``rp_AcqSetTriggerDelayNs``   | Set trigger delay in ns.                                                    |
-| | Example:                          |                               |                                                                             |
-| | ``ACQ:TRIG:DLY:NS 128``           |                               |                                                                             |
-+-------------------------------------+-------------------------------+-----------------------------------------------------------------------------+
-| | ``ACQ:TRIG:DLY:NS?`` > ``<time>`` | ``rp_AcqGetTriggerDelayNs``   | Get trigger delay in ns.                                                    |
-| | Example:                          |                               |                                                                             |
-| | ``ACQ:TRIG:DLY:NS?`` > ``128ns``  |                               |                                                                             |
-+-------------------------------------+-------------------------------+-----------------------------------------------------------------------------+
-| | ``ACQ:SOUR<n>:GAIN <gain>``       | ``rp_AcqSetGain``             | Set gain settings to HIGH or LOW                                            |
-| |                                   |                               | (For SIGNALlab 250-12 this is 1:20 and 1:1 attenuator).                     |
-| | Example:                          |                               | This gain is referring to jumper settings on Red Pitaya fast analog inputs. |
-| | ``ACQ:SOUR1:GAIN LV``             |                               |                                                                             |
-+-------------------------------------+-------------------------------+-----------------------------------------------------------------------------+
-| | ``ACQ:SOUR<n>:COUP <mode>``       | ``rp_AcqSetAC_DC``            | Sets the AC / DC modes for input.                                           |
-| | Example:                          |                               | (Only SIGNALlab 250-12)                                                     |
-| | ``ACQ:SOUR1:COUP AC``             |                               |                                                                             |
-+-------------------------------------+-------------------------------+-----------------------------------------------------------------------------+
-| | ``ACQ:SOUR<n>:COUP?`` > ``<mode>``| ``rp_AcqGetAC_DC``            | Get the AC / DC modes for input.                                            |
-| | Example:                          |                               | (Only SIGNALlab 250-12)                                                     |
-| | ``ACQ:SOUR1:COUP?`` > ``AC``      |                               |                                                                             |
-+-------------------------------------+-------------------------------+-----------------------------------------------------------------------------+
-| | ``ACQ:TRIG:LEV <level>``          | ``rp_AcqSetTriggerLevel``     | Set trigger level in mV.                                                    |
-| | Example:                          |                               |                                                                             |
-| | ``ACQ:TRIG:LEV 125 mV``           |                               |                                                                             |
-+-------------------------------------+-------------------------------+-----------------------------------------------------------------------------+
-| | ``ACQ:TRIG:LEV?`` > ``level``     | ``rp_AcqGetTriggerLevel``     | Get trigger level in mV.                                                    |
-| | Example:                          |                               |                                                                             |
-| | ``ACQ:TRIG:LEV?`` > ``123 mV``    |                               |                                                                             |
-+-------------------------------------+-------------------------------+-----------------------------------------------------------------------------+
-| | ``ACQ:TRIG:EXT:LEV <level>``      | ``rp_AcqSetTriggerLevel``     | Set trigger external level in V.                                            |
-| | Example:                          |                               | (Only SIGNALlab 250-12)                                                     |
-| | ``ACQ:TRIG:EXT:LEV 1``            |                               |                                                                             |
-+-------------------------------------+-------------------------------+-----------------------------------------------------------------------------+
-| | ``ACQ:TRIG:EXT:LEV?`` > ``level`` | ``rp_AcqGetTriggerLevel``     | Get trigger external level in V.                                            |
-| | Example:                          |                               | (Only SIGNALlab 250-12)                                                     |
-| | ``ACQ:TRIG:EXT:LEV?`` > ``1``     |                               |                                                                             |
-+-------------------------------------+-------------------------------+-----------------------------------------------------------------------------+
++-------------------------------------+-------------------------------+-------------------------------------------------------------------------------+
+| SCPI                                | API                           | DESCRIPTION                                                                   |
++=====================================+===============================+===============================================================================+
+| | ``ACQ:TRIG <source>``             | ``rp_AcqSetTriggerSrc``       | Disable triggering, trigger immediately or set trigger source & edge.         |
+| | Example:                          |                               |                                                                               |
+| | ``ACQ:TRIG CH1_PE``               |                               |                                                                               |
++-------------------------------------+-------------------------------+-------------------------------------------------------------------------------+
+| | ``ACQ:TRIG:STAT?``                | ``rp_AcqGetTriggerState``     | Get trigger status. If DISABLED -> TD else WAIT.                              |
+| | Example:                          |                               |                                                                               |
+| | ``ACQ:TRIG:STAT?`` > ``WAIT``     |                               |                                                                               |
++-------------------------------------+-------------------------------+-------------------------------------------------------------------------------+
+| | ``ACQ:TRIG:DLY <time>``           | ``rp_AcqSetTriggerDelay``     | Set trigger delay in samples.                                                 |
+| | Example:                          |                               |                                                                               |
+| | ``ACQ:TRIG:DLY 2314``             |                               |                                                                               |
++-------------------------------------+-------------------------------+-------------------------------------------------------------------------------+
+| | ``ACQ:TRIG:DLY?`` > ``<time>``    | ``rp_AcqGetTriggerDelay``     | Get trigger delay in samples.                                                 |
+| | Example:                          |                               |                                                                               |
+| | ``ACQ:TRIG:DLY?`` > ``2314``      |                               |                                                                               |
++-------------------------------------+-------------------------------+-------------------------------------------------------------------------------+
+| | ``ACQ:TRIG:DLY:NS <time>``        | ``rp_AcqSetTriggerDelayNs``   | Set trigger delay in ns.                                                      |
+| | Example:                          |                               |                                                                               |
+| | ``ACQ:TRIG:DLY:NS 128``           |                               |                                                                               |
++-------------------------------------+-------------------------------+-------------------------------------------------------------------------------+
+| | ``ACQ:TRIG:DLY:NS?`` > ``<time>`` | ``rp_AcqGetTriggerDelayNs``   | Get trigger delay in ns.                                                      |
+| | Example:                          |                               |                                                                               |
+| | ``ACQ:TRIG:DLY:NS?`` > ``128ns``  |                               |                                                                               |
++-------------------------------------+-------------------------------+-------------------------------------------------------------------------------+
+| | ``ACQ:SOUR<n>:GAIN <gain>``       | ``rp_AcqSetGain``             | | Set gain settings to HIGH or LOW                                            |
+| |                                   |                               | | (For SIGNALlab 250-12 this is 1:20 and 1:1 attenuator).                     |
+| | Example:                          |                               | | This gain is referring to jumper settings on Red Pitaya fast analog inputs. |
+| | ``ACQ:SOUR1:GAIN LV``             |                               |                                                                               |
++-------------------------------------+-------------------------------+-------------------------------------------------------------------------------+
+| | ``ACQ:SOUR<n>:COUP <mode>``       | ``rp_AcqSetAC_DC``            | Sets the AC / DC modes for input.                                             |
+| | Example:                          |                               | (Only SIGNALlab 250-12)                                                       |
+| | ``ACQ:SOUR1:COUP AC``             |                               |                                                                               |
++-------------------------------------+-------------------------------+-------------------------------------------------------------------------------+
+| | ``ACQ:SOUR<n>:COUP?`` > ``<mode>``| ``rp_AcqGetAC_DC``            | Get the AC / DC modes for input.                                              |
+| | Example:                          |                               | (Only SIGNALlab 250-12)                                                       |
+| | ``ACQ:SOUR1:COUP?`` > ``AC``      |                               |                                                                               |
++-------------------------------------+-------------------------------+-------------------------------------------------------------------------------+
+| | ``ACQ:TRIG:LEV <level>``          | ``rp_AcqSetTriggerLevel``     | Set trigger level in mV.                                                      |
+| | Example:                          |                               |                                                                               |
+| | ``ACQ:TRIG:LEV 125 mV``           |                               |                                                                               |
++-------------------------------------+-------------------------------+-------------------------------------------------------------------------------+
+| | ``ACQ:TRIG:LEV?`` > ``level``     | ``rp_AcqGetTriggerLevel``     | Get trigger level in mV.                                                      |
+| | Example:                          |                               |                                                                               |
+| | ``ACQ:TRIG:LEV?`` > ``123 mV``    |                               |                                                                               |
++-------------------------------------+-------------------------------+-------------------------------------------------------------------------------+
+| | ``ACQ:TRIG:EXT:LEV <level>``      | ``rp_AcqSetTriggerLevel``     | Set trigger external level in V.                                              |
+| | Example:                          |                               | (Only SIGNALlab 250-12)                                                       |
+| | ``ACQ:TRIG:EXT:LEV 1``            |                               |                                                                               |
++-------------------------------------+-------------------------------+-------------------------------------------------------------------------------+
+| | ``ACQ:TRIG:EXT:LEV?`` > ``level`` | ``rp_AcqGetTriggerLevel``     | Get trigger external level in V.                                              |
+| | Example:                          |                               | (Only SIGNALlab 250-12)                                                       |
+| | ``ACQ:TRIG:EXT:LEV?`` > ``1``     |                               |                                                                               |
++-------------------------------------+-------------------------------+-------------------------------------------------------------------------------+
 
 =============
 Data pointers
