@@ -147,13 +147,15 @@ Parameter options:
 | | Examples:                          |                            |                                                                          |
 | | ``SOUR1:TRIG:SOUR EXT``            |                            |                                                                          |
 +--------------------------------------+----------------------------+--------------------------------------------------------------------------+
-| | ``SOUR<n>:TRIG:IMM``               | ``rp_GenTrigger``          | Triggers selected source immediately.                                    |
+| | ``SOUR<n>:TRIG:IMM``               | ``rp_GenTrigger``          | Triggers selected source immediately only for Burst mode. <n> can        |
+| |                                    |                            | accepted values {0...3}. Where 0 is 1 channel, 1 is 2 channel, 2 and 3   |
+| |                                    |                            | for run both channel simultaneously.                                     |
 | | Examples:                          |                            |                                                                          |
 | | ``SOUR1:TRIG:IMM``                 |                            |                                                                          |
 +--------------------------------------+----------------------------+--------------------------------------------------------------------------+
-| | ``TRIG:IMM``                       | ``rp_GenTrigger``          | Triggers both sources immediately.                                       |
-+--------------------------------------+----------------------------+--------------------------------------------------------------------------+
 | | ``GEN:RST``                        |                            | Reset generator to default settings.                                     |
++--------------------------------------+----------------------------+--------------------------------------------------------------------------+
+| | ``GEN:SYNC``                       |                            | Running two generators at the simultaneously.                            |
 +--------------------------------------+----------------------------+--------------------------------------------------------------------------+
 
 =======
