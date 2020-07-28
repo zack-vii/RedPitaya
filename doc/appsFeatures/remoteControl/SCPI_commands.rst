@@ -80,7 +80,7 @@ Parameter options:
 * ``<phase> = {-360deg ... 360deg}`` Default: ``0``
 * ``<dcyc> = {0...1}`` Default: ``0.5`` Where 1 corresponds to 100%
 * ``<array> = {value1, ...}`` max. 16k values, floats in the range -1 to 1
-* ``<burst> = {ON,OFF}`` Default: ``OFF``
+* ``<burst> = {BURST , CONTINUOUS}`` Default: ``CONTINUOUS``
 * ``<count> = {1...50000, INF}`` ``INF`` = infinity/continuous, Default: ``1``
 * ``<time> = {1us-500s}`` Value in *us*.
 * ``<trigger> = {EXT_PE, EXT_NE, INT, GATED}``
@@ -93,9 +93,9 @@ Parameter options:
 +--------------------------------------+----------------------------+----------------------------------------------------------------------------+
 | SCPI                                 | API                        | description                                                                |
 +======================================+============================+============================================================================+
-| | ``OUTPUT<n>:STATE <state>``        | | ``rp_GenOutEnable``      | Disable or enable fast analog outputs.                                     |
-| | Examples:                          | | ``rp_GenOutDisable``     |                                                                            |
-| | ``OUTPUT1:STATE ON``               |                            |                                                                            |
+| | ``OUTPUT<n>:STATE <state>``        | | ``rp_GenOutEnable``      | | Disable or enable fast analog outputs.                                   |
+| | Examples:                          | | ``rp_GenOutDisable``     | | <n> can accepted values {0...3}. Where 0 is 1 channel, 1 is 2 channel,   |
+| | ``OUTPUT1:STATE ON``               |                            | | 2 and 3 for run both channel simultaneously.                             |
 +--------------------------------------+----------------------------+----------------------------------------------------------------------------+
 | | ``SOUR<n>:FREQ:FIX <frequency>``   | ``rp_GenFreq``             | Set frequency of fast analog outputs.                                      |
 | | Examples:                          |                            |                                                                            |
@@ -128,8 +128,8 @@ Parameter options:
 +--------------------------------------+----------------------------+----------------------------------------------------------------------------+
 | | ``SOUR<n>:BURS:STAT <burst>``      | ``rp_GenMode``             | Enable or disable burst (pulse) mode.                                      |
 | | Examples:                          |                            | Red Pitaya will generate **R** number of **N** periods of signal           |
-| | ``SOUR1:BURS:STAT ON``             |                            | and then stop. Time between bursts is **P**.                               |
-| | ``SOUR1:BURS:STAT OFF``            |                            |                                                                            |
+| | ``SOUR1:BURS:STAT BURST``          |                            | and then stop. Time between bursts is **P**.                               |
+| | ``SOUR1:BURS:STAT CONTINUOUS``     |                            |                                                                            |
 +--------------------------------------+----------------------------+----------------------------------------------------------------------------+
 | | ``SOUR<n>:BURS:NCYC <count>``      | ``rp_GenBurstCount``       | Set N number of periods in one burst.                                      |
 | | Examples:                          |                            |                                                                            |
@@ -155,7 +155,7 @@ Parameter options:
 +--------------------------------------+----------------------------+----------------------------------------------------------------------------+
 | | ``GEN:RST``                        |                            | Reset generator to default settings.                                       |
 +--------------------------------------+----------------------------+----------------------------------------------------------------------------+
-| | ``GEN:SYNC``                       |                            | Running two generators at the simultaneously.                              |
+| | ``GEN:SYNC``                       |                            | Reset two generators at the simultaneously.                                |
 +--------------------------------------+----------------------------+----------------------------------------------------------------------------+
 
 =======
