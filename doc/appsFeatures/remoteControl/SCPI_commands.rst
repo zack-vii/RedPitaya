@@ -93,9 +93,13 @@ Parameter options:
 +--------------------------------------+----------------------------+----------------------------------------------------------------------------+
 | SCPI                                 | API                        | description                                                                |
 +======================================+============================+============================================================================+
+| | ``OUTPUT:STATE <state>``           | | ``rp_GenOutEnableSync``  | Runs or Stop two channels synchronously                                    |
+| | Examples:                          |                            |                                                                            |
+| | ``OUTPUT:STATE ON``                |                            |                                                                            |
++--------------------------------------+----------------------------+----------------------------------------------------------------------------+
 | | ``OUTPUT<n>:STATE <state>``        | | ``rp_GenOutEnable``      | | Disable or enable fast analog outputs.                                   |
-| | Examples:                          | | ``rp_GenOutDisable``     | | <n> can accepted values {0...3}. Where 0 is 1 channel, 1 is 2 channel,   |
-| | ``OUTPUT1:STATE ON``               |                            | | 2 and 3 for run both channel simultaneously.                             |
+| | Examples:                          | | ``rp_GenOutDisable``     |                                                                            |
+| | ``OUTPUT1:STATE ON``               |                            |                                                                            |
 +--------------------------------------+----------------------------+----------------------------------------------------------------------------+
 | | ``SOUR<n>:FREQ:FIX <frequency>``   | ``rp_GenFreq``             | Set frequency of fast analog outputs.                                      |
 | | Examples:                          |                            |                                                                            |
@@ -147,9 +151,13 @@ Parameter options:
 | | Examples:                          |                            |                                                                            |
 | | ``SOUR1:TRIG:SOUR EXT``            |                            |                                                                            |
 +--------------------------------------+----------------------------+----------------------------------------------------------------------------+
-| | ``SOUR<n>:TRIG:IMM``               | ``rp_GenTrigger``          | | Triggers selected source immediately only for Burst mode. <n> can        |
-| |                                    |                            | | accepted values {0...3}. Where 0 is 1 channel, 1 is 2 channel, 2 and 3   |
-| |                                    |                            | | for run both channel simultaneously.                                     |
+| | ``SOUR:TRIG:IMM``                  | ``rp_GenTrigger``          | | Triggers selected source immediately for two channels                    |
+| |                                    |                            |                                                                            |
+| | Examples:                          |                            |                                                                            |
+| | ``SOUR:TRIG:IMM``                  |                            |                                                                            |
++--------------------------------------+----------------------------+----------------------------------------------------------------------------+
+| | ``SOUR<n>:TRIG:IMM``               | ``rp_GenTrigger``          | | Triggers selected source immediately for selected channel                |
+| |                                    |                            |                                                                            |
 | | Examples:                          |                            |                                                                            |
 | | ``SOUR1:TRIG:IMM``                 |                            |                                                                            |
 +--------------------------------------+----------------------------+----------------------------------------------------------------------------+
