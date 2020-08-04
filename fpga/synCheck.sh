@@ -143,9 +143,9 @@ function grepTiming {
     fileMiss ${FILE}
   fi
 }
-
+PRJ=${PRJ:=v0.94}
 # define report directory
-FILEPATH="prj/v0.94/out/"
+FILEPATH="prj/$PRJ/out/"
 
 # check timing in synthesis, placement, route timing reports
 grepTiming ${FILEPATH}post_synth_timing_summary.rpt
